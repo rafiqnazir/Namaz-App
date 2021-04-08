@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "745283111749",
+    "project_id": "namaz-timing-e93a7",
+    "storage_bucket": "namaz-timing-e93a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745283111749:android:afd40038d0b9211b15cc2c",
+        "android_client_info": {
+          "package_name": "com.rafiq.flutter_app_namaz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745283111749-3ku571klh7e0uun3l3jterkou0q375ho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOs17Kq-lCOZGdeICQUiKNwZz4UQAn5Nw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745283111749-3ku571klh7e0uun3l3jterkou0q375ho.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
