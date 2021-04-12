@@ -203,8 +203,11 @@ class _UpdateMosqueState extends State<UpdateMosque> {
       children: <Widget>[
         CircleAvatar(
           radius: 100.0,
-          backgroundImage:
-              _imageFile == null ? NetworkImage(url) : FileImage(_imageFile),
+          backgroundImage: _imageFile == null
+              ? (url == null
+                  ? AssetImage("assets/default.png")
+                  : NetworkImage(url))
+              : FileImage(_imageFile),
         ),
         TextButton(
           onPressed: () {

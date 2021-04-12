@@ -23,191 +23,186 @@ class _MainDrawerState extends State<MainDrawer> {
   Widget build(BuildContext context) {
     final user = Provider.of<CustomUser>(context);
     if (user == null) {
-      return Drawer(
-          child: Container(
-        color: Colors.blueGrey[700],
-        child: ListView(children: <Widget>[
-          Container(
-            height: 250,
-            child: DrawerHeader(
-              child: Text(""),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/kaaba.jpg"), fit: BoxFit.fill),
+      return Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        child: Drawer(
+            child: Container(
+          color: Colors.blueGrey[700],
+          child: ListView(children: <Widget>[
+            Container(
+              height: MediaQuery.of(context).size.height / 2.5,
+              child: DrawerHeader(
+                child: Text(""),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/kaaba.jpg"), fit: BoxFit.fill),
+                ),
               ),
             ),
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.all(10),
-            onTap: () {
-              Navigator.of(context).pop();
+            ListTile(
+              contentPadding: EdgeInsets.all(10),
+              onTap: () {
+                Navigator.of(context).pop();
 
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()));
-            },
-            title: Text('Create Account',
-                style: TextStyle(
-                  fontSize: 17,
-                  color: Colors.white,
-                )),
-            leading: Icon(FontAwesomeIcons.user, color: Colors.white),
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.all(10),
-            onTap: () {
-              Navigator.of(context).pop();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
+              },
+              title: Text('Create Account',
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.white,
+                  )),
+              leading: Icon(FontAwesomeIcons.user, color: Colors.white),
+            ),
+            ListTile(
+              contentPadding: EdgeInsets.all(10),
+              onTap: () {
+                Navigator.of(context).pop();
 
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()));
-            },
-            title: Text('Sign In',
-                style: TextStyle(
-                  fontSize: 17,
-                  color: Colors.white,
-                )),
-            leading: Icon(Icons.person, color: Colors.white),
-          ),
-        ]),
-      ));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
+              },
+              title: Text('Sign In',
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.white,
+                  )),
+              leading: Icon(Icons.person, color: Colors.white),
+            ),
+          ]),
+        )),
+      );
     } else {
       return StreamBuilder<Mosque>(
           stream: DatabaseService(uid: user.uid).mosque,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return Drawer(
-                  child: Container(
-                color: Colors.blueGrey[700],
-                child: ListView(
-                  children: <Widget>[
-                    Container(
-                      height: 300,
-                      child: DrawerHeader(
-                        child: Text(""),
-                        // child: Text(
-                        //   '${hijri.hDay} - ${hijri.longMonthName}',
-                        //   style: TextStyle(
-                        //       color: Colors.white,
-                        //       fontSize: 30,
-                        //       backgroundColor: Colors.teal),
-                        // ),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage("assets/kaaba.jpg"),
-                              fit: BoxFit.fill),
+              return Container(
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: Drawer(
+                    child: Container(
+                  color: Colors.blueGrey[700],
+                  child: ListView(
+                    children: <Widget>[
+                      Container(
+                        height: MediaQuery.of(context).size.height / 2.5,
+                        child: DrawerHeader(
+                          child: Text(""),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/kaaba.jpg"),
+                                fit: BoxFit.fill),
+                          ),
                         ),
                       ),
-                    ),
-                    ListTile(
-                      contentPadding: EdgeInsets.all(10),
-                      // tileColor: Colors.teal,
-                      onTap: () {
-                        Navigator.of(context).pop();
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => UpdateNamaz()));
-                        // Navigator.pop(context);
-                      },
-                      title: Text('Update Namaz Timing',
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: Colors.white,
-                          )),
-                      leading:
-                          Icon(FontAwesomeIcons.upload, color: Colors.white),
-                    ),
-                    ListTile(
-                      contentPadding: EdgeInsets.all(10),
-                      onTap: () {
-                        Navigator.of(context).pop();
+                      ListTile(
+                        contentPadding: EdgeInsets.all(10),
+                        // tileColor: Colors.teal,
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => UpdateNamaz()));
+                          // Navigator.pop(context);
+                        },
+                        title: Text('Update Namaz Timing',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.white,
+                            )),
+                        leading:
+                            Icon(FontAwesomeIcons.upload, color: Colors.white),
+                      ),
+                      ListTile(
+                        contentPadding: EdgeInsets.all(10),
+                        onTap: () {
+                          Navigator.of(context).pop();
 
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => UpdateMosque()));
-                      },
-                      title: Text('Update Mosque',
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: Colors.white,
-                          )),
-                      leading:
-                          Icon(FontAwesomeIcons.mosque, color: Colors.white),
-                    ),
-                    ListTile(
-                      contentPadding: EdgeInsets.all(10),
-                      onTap: () {
-                        _auth.signOut();
-                        Navigator.pop(context);
-                      },
-                      title: Text('Log Out',
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: Colors.white,
-                          )),
-                      leading: Icon(Icons.logout, color: Colors.white),
-                    ),
-                  ],
-                ),
-              ));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => UpdateMosque()));
+                        },
+                        title: Text('Update Mosque',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.white,
+                            )),
+                        leading:
+                            Icon(FontAwesomeIcons.mosque, color: Colors.white),
+                      ),
+                      ListTile(
+                        contentPadding: EdgeInsets.all(10),
+                        onTap: () {
+                          _auth.signOut();
+                          Navigator.pop(context);
+                        },
+                        title: Text('Log Out',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.white,
+                            )),
+                        leading: Icon(Icons.logout, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                )),
+              );
             } else {
-              return Drawer(
-                  child: Container(
-                color: Colors.blueGrey[700],
-                child: ListView(
-                  children: <Widget>[
-                    Container(
-                      height: 300,
-                      child: DrawerHeader(
-                        child: Text(""),
-                        // child: Text(
-                        //   '${hijri.hDay} - ${hijri.longMonthName}',
-                        //   style: TextStyle(
-                        //       color: Colors.white,
-                        //       fontSize: 30,
-                        //       backgroundColor: Colors.teal),
-                        // ),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage("assets/kaaba.jpg"),
-                              fit: BoxFit.fill),
+              return Container(
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: Drawer(
+                    child: Container(
+                  color: Colors.blueGrey[700],
+                  child: ListView(
+                    children: <Widget>[
+                      Container(
+                        height: MediaQuery.of(context).size.height / 2.5,
+                        child: DrawerHeader(
+                          child: Text(""),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/kaaba.jpg"),
+                                fit: BoxFit.fill),
+                          ),
                         ),
                       ),
-                    ),
-                    ListTile(
-                      contentPadding: EdgeInsets.all(10),
-                      onTap: () {
-                        Navigator.of(context).pop();
+                      ListTile(
+                        contentPadding: EdgeInsets.all(10),
+                        onTap: () {
+                          Navigator.of(context).pop();
 
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RegisterMosque()));
-                      },
-                      title: Text('Register Mosque',
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: Colors.white,
-                          )),
-                      leading:
-                          Icon(FontAwesomeIcons.mosque, color: Colors.white),
-                    ),
-                    ListTile(
-                      contentPadding: EdgeInsets.all(10),
-                      onTap: () {
-                        _auth.signOut();
-                        Navigator.pop(context);
-                      },
-                      title: Text('Log Out',
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: Colors.white,
-                          )),
-                      leading: Icon(Icons.logout, color: Colors.white),
-                    ),
-                  ],
-                ),
-              ));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RegisterMosque()));
+                        },
+                        title: Text('Register Mosque',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.white,
+                            )),
+                        leading:
+                            Icon(FontAwesomeIcons.mosque, color: Colors.white),
+                      ),
+                      ListTile(
+                        contentPadding: EdgeInsets.all(10),
+                        onTap: () {
+                          _auth.signOut();
+                          Navigator.pop(context);
+                        },
+                        title: Text('Log Out',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.white,
+                            )),
+                        leading: Icon(Icons.logout, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                )),
+              );
             }
           });
     }

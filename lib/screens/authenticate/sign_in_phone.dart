@@ -13,7 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
-        title: Text('Phone Auth'),
+        title: Text('Phone Number Validation'),
         backgroundColor: Colors.blueGrey[700],
       ),
       body: Column(
@@ -24,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
               margin: EdgeInsets.only(top: 60),
               child: Center(
                 child: Text(
-                  'Phone Authentication',
+                  'Phone Number',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
                 ),
               ),
@@ -32,6 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Container(
               margin: EdgeInsets.only(top: 40, right: 10, left: 10),
               child: TextField(
+                style: TextStyle(fontSize: 25),
                 decoration: InputDecoration(
                   hintText: 'Phone Number',
                   prefix: Padding(

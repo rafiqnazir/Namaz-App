@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_app_namaz/screens/home/nearest_mosques.dart';
@@ -41,7 +42,7 @@ class _SliverState extends State<Sliver> {
     CustomSearch(),
   ];
 
-  Future<void> getTime() async {
+  Future getTime() async {
     // make the request
     try {
       final response = await http
@@ -72,15 +73,18 @@ class _SliverState extends State<Sliver> {
           SliverAppBar(
             backgroundColor: Colors.blueGrey[700],
             pinned: true,
-            expandedHeight: 440.0,
+            expandedHeight: MediaQuery.of(context).size.height / 2,
             flexibleSpace: FlexibleSpaceBar(
               title: day == null
                   ? Text("")
-                  : Text('$day - $month - $year',
+                  : AutoSizeText(
+                      '$day - $month - $year',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 25,
-                      )),
+                      ),
+                      maxLines: 1,
+                    ),
               background: Swiper(
                 itemCount: _images.length,
                 itemBuilder: (BuildContext context, int index) => Opacity(

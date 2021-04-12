@@ -56,7 +56,7 @@ class _NamazTimingState extends State<NamazTiming> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Container(
-                            height: 400,
+                            height: MediaQuery.of(context).size.height * 0.5,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                   image:

@@ -40,9 +40,9 @@ class _OTPScreenState extends State<OTPScreen> {
                   margin: EdgeInsets.only(top: 40),
                   child: Center(
                     child: Text(
-                      'Sending OTP to \n+91-${widget.phone}',
+                      '   Sending OTP... \n\n+91-${widget.phone}',
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                     ),
                   ),
                 ),
@@ -100,11 +100,6 @@ class _OTPScreenState extends State<OTPScreen> {
             if (value.user != null) {
               Navigator.pop(context);
               Navigator.pop(context);
-              // Navigator.pop(context);
-              // Navigator.pushAndRemoveUntil(
-              //     context,
-              //     MaterialPageRoute(builder: (context) => Home()),
-              //     (route) => false);
             }
           });
         },

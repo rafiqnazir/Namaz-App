@@ -29,7 +29,7 @@ class _NearestMosqueState extends State<NearestMosque> {
             .point(latitude: position.latitude, longitude: position.longitude);
         Geoflutterfire()
             .collection(collectionRef: mosqueCollection)
-            .within(center: center, radius: 1000, field: 'location')
+            .within(center: center, radius: 50, field: 'location')
             .listen((List<DocumentSnapshot> documentList) {
           List<Mosque> temp = [];
           for (var x in documentList) {
