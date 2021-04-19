@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_namaz/models/mosque.dart';
 import 'package:flutter_app_namaz/models/user.dart';
-// import 'package:flutter_app_namaz/screens/authenticate/general_register.dart';
-// import 'package:flutter_app_namaz/screens/authenticate/general_sigin.dart';
 import 'package:flutter_app_namaz/screens/authenticate/register_mosque.dart';
 import 'package:flutter_app_namaz/screens/authenticate/sign_in_phone.dart';
 import 'package:flutter_app_namaz/screens/authenticate/update_mosque.dart';

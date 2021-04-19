@@ -128,7 +128,6 @@ class _TimingsState extends State<Timings> {
                   SizedBox(
                     height: 100,
                   ),
-
                   Visibility(
                     visible: sehri != null,
                     child: NamazContainer(
@@ -164,11 +163,6 @@ class _TimingsState extends State<Timings> {
                               color: Colors.white,
                             )),
                       ))
-
-                  // Text('Shia Sehri : ${sehri[0]}'),
-                  // Text('Shia Iftari : ${iftari[0]}'),
-                  // Text('Sunni Sehri : ${sehri[1]}'),
-                  // Text('Sunni Iftari : ${iftari[1]}'),
                 ],
               ),
             ));
