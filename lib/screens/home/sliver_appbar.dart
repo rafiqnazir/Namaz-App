@@ -42,11 +42,7 @@ class _SliverState extends State<Sliver> {
     CustomSearch(),
   ];
 
-<<<<<<< HEAD
   Future getTime() async {
-=======
-  getTime() async {
->>>>>>> main
     // make the request
     if (day == null) {
       try {

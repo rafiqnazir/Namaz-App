@@ -10,7 +10,6 @@ import 'package:flutter_app_namaz/screens/home/update_namaz.dart';
 import 'package:flutter_app_namaz/services/auth.dart';
 import 'package:flutter_app_namaz/services/database.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 class MainDrawer extends StatefulWidget {
@@ -96,7 +95,6 @@ class _MainDrawerState extends State<MainDrawer> {
                           ),
                         ),
                       ),
-<<<<<<< HEAD
                       ListTile(
                         contentPadding: EdgeInsets.all(10),
                         // tileColor: Colors.teal,
@@ -120,39 +118,6 @@ class _MainDrawerState extends State<MainDrawer> {
                         contentPadding: EdgeInsets.all(10),
                         onTap: () {
                           Navigator.of(context).pop();
-=======
-                    ),
-                    ListTile(
-                      contentPadding: EdgeInsets.all(10),
-                      // tileColor: Colors.teal,
-                      onTap: () {
-                        Navigator.of(context).pop();
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => UpdateNamaz()));
-                        Navigator.push(
-                          context,
-                          PageTransition(
-                            type: PageTransitionType.fade,
-                            child: UpdateNamaz(),
-                          ),
-                        );
-                        // Navigator.pop(context);
-                      },
-                      title: Text('Update Namaz Timing',
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: Colors.white,
-                          )),
-                      leading:
-                          Icon(FontAwesomeIcons.upload, color: Colors.white),
-                    ),
-                    ListTile(
-                      contentPadding: EdgeInsets.all(10),
-                      onTap: () {
-                        Navigator.of(context).pop();
->>>>>>> main
 
                           Navigator.push(
                               context,
