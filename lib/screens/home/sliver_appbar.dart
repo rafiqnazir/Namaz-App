@@ -41,11 +41,7 @@ class _SliverState extends State<Sliver> {
     CustomSearch(),
   ];
 
-<<<<<<< Updated upstream
-  Future<void> getTime() async {
-=======
   getTime() async {
->>>>>>> Stashed changes
     // make the request
     if (day == null) {
       try {

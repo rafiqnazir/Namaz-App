@@ -97,17 +97,23 @@ class _MainDrawerState extends State<MainDrawer> {
                               fit: BoxFit.fill),
                         ),
                       ),
-<<<<<<< Updated upstream
                     ),
                     ListTile(
                       contentPadding: EdgeInsets.all(10),
                       // tileColor: Colors.teal,
                       onTap: () {
                         Navigator.of(context).pop();
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => UpdateNamaz()));
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => UpdateNamaz()));
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            child: UpdateNamaz(),
+                          ),
+                        );
                         // Navigator.pop(context);
                       },
                       title: Text('Update Namaz Timing',
@@ -122,38 +128,6 @@ class _MainDrawerState extends State<MainDrawer> {
                       contentPadding: EdgeInsets.all(10),
                       onTap: () {
                         Navigator.of(context).pop();
-=======
-                      ListTile(
-                        contentPadding: EdgeInsets.all(10),
-                        // tileColor: Colors.teal,
-                        onTap: () {
-                          Navigator.of(context).pop();
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => UpdateNamaz()));
-                          Navigator.push(
-                            context,
-                            PageTransition(
-                              type: PageTransitionType.fade,
-                              child: UpdateNamaz(),
-                            ),
-                          );
-                          // Navigator.pop(context);
-                        },
-                        title: Text('Update Namaz Timing',
-                            style: TextStyle(
-                              fontSize: 17,
-                              color: Colors.white,
-                            )),
-                        leading:
-                            Icon(FontAwesomeIcons.upload, color: Colors.white),
-                      ),
-                      ListTile(
-                        contentPadding: EdgeInsets.all(10),
-                        onTap: () {
-                          Navigator.of(context).pop();
->>>>>>> Stashed changes
 
                         Navigator.push(
                             context,
