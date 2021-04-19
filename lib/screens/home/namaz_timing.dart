@@ -128,17 +128,21 @@ class _NamazTimingState extends State<NamazTiming> {
                               height: 10,
                             ),
                           ),
-                          NamazContainer(
-                            namaz: 'Asr',
-                            time: namaz.asr,
-                            unit: 'PM',
-                            customIcon: Icon(
-                              FontAwesomeIcons.mugHot,
-                              color: Colors.orange[200],
+                          Visibility(
+                            child: NamazContainer(
+                              namaz: 'Asr',
+                              time: namaz.asr,
+                              unit: 'PM',
+                              customIcon: Icon(
+                                FontAwesomeIcons.mugHot,
+                                color: Colors.orange[200],
+                              ),
                             ),
                           ),
-                          SizedBox(
-                            height: 10,
+                          Visibility(
+                            child: SizedBox(
+                              height: 10,
+                            ),
                           ),
                           Visibility(
                             child: NamazContainer(

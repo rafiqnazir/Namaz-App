@@ -42,23 +42,30 @@ class _SliverState extends State<Sliver> {
     CustomSearch(),
   ];
 
+<<<<<<< HEAD
   Future getTime() async {
+=======
+  getTime() async {
+>>>>>>> main
     // make the request
-    try {
-      final response = await http
-          .get(Uri.https('api.aladhan.com', '/v1/gToH', {'q': '{http}'}));
-      Map data = jsonDecode(response.body);
+    if (day == null) {
+      try {
+        final response = await http
+            .get(Uri.https('api.aladhan.com', '/v1/gToH', {'q': '{http}'}));
 
-      // print(data);
-      if (data['code'] == 200) {
-        setState(() => day = data['data']['hijri']['day']);
-        setState(() => month = data['data']['hijri']['month']['en']);
-        setState(() => year = data['data']['hijri']['year']);
+        if (response.statusCode == 200) {
+          Map data = jsonDecode(response.body);
+          setState(() => day = data['data']['hijri']['day']);
+          setState(() => month = data['data']['hijri']['month']['en']);
+          setState(() => year = data['data']['hijri']['year']);
+        } else {
+          print("API Error");
+        }
+      } catch (e) {
+        print(e.toString());
       }
-      // Set Time
-    } catch (e) {
-      print(e);
     }
+    // Set Time
   }
 
   @override
