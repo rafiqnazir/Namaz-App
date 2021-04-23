@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 
-version: 1.0.2+5
+version: 1.1.3+8
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -25,21 +25,23 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  firebase_auth: ^1.0.3
-  cloud_firestore: ^1.0.3
+  firebase_core: ^1.0.4
+  firebase_auth: ^1.1.1
+  cloud_firestore: ^1.0.6
   provider: ^5.0.0
   flutter_spinkit: ^4.1.2
   font_awesome_flutter: ^8.12.0
   geolocator: ^7.0.1
   geoflutterfire: ^3.0.0-nullsafety.2
   image_picker: ^0.7.4
-  firebase_storage: ^8.0.3
+  firebase_storage: ^8.0.4
   numberpicker: ^2.0.1
   flutter_swiper: ^1.1.6
   pinput: ^1.2.0
   auto_size_text: ^2.1.0
   page_transition: ^2.0.1-nullsafety.0
   http: ^0.13.1
+  firebase_messaging: ^9.1.2
   
 
 dev_dependencies:

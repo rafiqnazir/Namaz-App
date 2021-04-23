@@ -19,6 +19,10 @@ class _NamazTimingState extends State<NamazTiming> {
   final CollectionReference validity =
       FirebaseFirestore.instance.collection('validity');
   bool eid = false;
+  bool fajr=false;
+  bool asr=false;
+  bool maghrib=false;
+  bool isha=false;
   @override
   void initState() {
     super.initState();
@@ -29,6 +33,11 @@ class _NamazTimingState extends State<NamazTiming> {
     validity.doc('1').get().then((value) {
       setState(() {
         eid = value.data()['eid'];
+        fajr = value.data()['fajar'];
+        asr = value.data()['asr'];
+        maghrib = value.data()['maghrib'];
+        isha = value.data()['isha'];
+        
       });
     });
   }
@@ -100,6 +109,7 @@ class _NamazTimingState extends State<NamazTiming> {
                             height: 20,
                           ),
                           Visibility(
+                            visible: fajr,
                             child: NamazContainer(
                                 namaz: 'Fajar',
                                 time: namaz.fajar,
@@ -108,11 +118,13 @@ class _NamazTimingState extends State<NamazTiming> {
                                     size: 25, color: Colors.orange[400])),
                           ),
                           Visibility(
+                            visible: fajr,
                             child: SizedBox(
                               height: 10,
                             ),
                           ),
                           Visibility(
+                            
                             child: NamazContainer(
                                 namaz: 'Zuhr',
                                 time: namaz.zuhr,
@@ -129,6 +141,7 @@ class _NamazTimingState extends State<NamazTiming> {
                             ),
                           ),
                           Visibility(
+                            visible: asr,
                             child: NamazContainer(
                               namaz: 'Asr',
                               time: namaz.asr,
@@ -140,11 +153,13 @@ class _NamazTimingState extends State<NamazTiming> {
                             ),
                           ),
                           Visibility(
+                            visible: asr,
                             child: SizedBox(
                               height: 10,
                             ),
                           ),
                           Visibility(
+                            visible: maghrib,
                             child: NamazContainer(
                                 namaz: 'Maghrib',
                                 time: namaz.maghrib,
@@ -153,11 +168,13 @@ class _NamazTimingState extends State<NamazTiming> {
                                     color: Colors.orange[100])),
                           ),
                           Visibility(
+                            visible: maghrib,
                             child: SizedBox(
                               height: 10,
                             ),
                           ),
                           Visibility(
+                            visible: isha,
                             child: NamazContainer(
                                 namaz: 'Isha',
                                 time: namaz.isha,
@@ -168,6 +185,7 @@ class _NamazTimingState extends State<NamazTiming> {
                                 )),
                           ),
                           Visibility(
+                            visible: isha,
                             child: SizedBox(
                               height: 10,
                             ),

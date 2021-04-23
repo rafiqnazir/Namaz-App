@@ -42,12 +42,12 @@ class _SliverState extends State<Sliver> {
     CustomSearch(),
   ];
 
-  Future getTime() async {
+  getTime() async {
     // make the request
-    if (day == null) {
+    if (year == null) {
       try {
-        final response = await http
-            .get(Uri.https('api.aladhan.com', '/v1/gToH', {'q': '{http}'}));
+        final response =
+            await http.get(Uri.https('api.aladhan.com', '/v1/gToH'));
 
         if (response.statusCode == 200) {
           Map data = jsonDecode(response.body);
@@ -68,7 +68,6 @@ class _SliverState extends State<Sliver> {
   Widget build(BuildContext context) {
     getTime();
     return Scaffold(
-      // backgroundColor: Colors.black87,
       backgroundColor: Colors.blueGrey,
       drawer: MainDrawer(),
       body: CustomScrollView(

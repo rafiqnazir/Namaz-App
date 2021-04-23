@@ -19,7 +19,7 @@ class Home extends StatelessWidget {
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => Timings()));
           },
-          child: const Icon(FontAwesomeIcons.userClock),
+          child: const Icon(FontAwesomeIcons.mosque),
           backgroundColor: Colors.lightGreen,
         ),
       ),
