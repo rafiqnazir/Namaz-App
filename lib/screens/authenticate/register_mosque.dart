@@ -89,8 +89,11 @@ class _RegisterMosqueState extends State<RegisterMosque> {
                 child: Form(
                   key: _formKey,
                   child: Column(children: <Widget>[
+                    Text(
+                        "Please Register Mosque, when you are inside or near it.\nAs we use your geolocation for mosque.",
+                        style: TextStyle(color: Colors.white)),
                     SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     imageProfile(),
                     Text(
@@ -101,7 +104,7 @@ class _RegisterMosqueState extends State<RegisterMosque> {
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     TextFormField(
                       validator: (value) {
@@ -163,7 +166,32 @@ class _RegisterMosqueState extends State<RegisterMosque> {
                             }
                             await DatabaseService(uid: user.uid)
                                 .initializeNamazData();
-                            Navigator.pop(context);
+                            setState(() {
+                              loading = false;
+                            });
+                            return AlertDialog(
+                              title: Text("Congratulations"),
+                              content: SingleChildScrollView(
+                                child: ListBody(
+                                  children: <Widget>[
+                                    Text('Your mosque has been registered.'),
+                                    Text(
+                                        'It might take couple of days to validate the mosque'),
+                                    Text(
+                                        "If you don't see update mosque option, then your mosque registration was cancelled.")
+                                  ],
+                                ),
+                              ),
+                              actions: <Widget>[
+                                TextButton(
+                                  child: Text("Close"),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
+                            );
                           }
                         }
                       },
@@ -188,7 +216,7 @@ class _RegisterMosqueState extends State<RegisterMosque> {
         child: Column(
       children: <Widget>[
         CircleAvatar(
-          radius: 100.0,
+          radius: 70.0,
           backgroundImage: _imageFile == null
               ? AssetImage("assets/default.png")
               : FileImage(_imageFile),

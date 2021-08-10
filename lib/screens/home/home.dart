@@ -1,3 +1,4 @@
+// import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_namaz/models/mosque.dart';
 import 'package:flutter_app_namaz/screens/home/timings.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_app_namaz/screens/home/sliver_appbar.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // FirebaseMessaging messaging = FirebaseMessaging.instance;
     // ignore: missing_required_param
     return StreamProvider<List<Mosque>>.value(
       value: DatabaseService().mosques,

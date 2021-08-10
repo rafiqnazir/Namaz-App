@@ -41,7 +41,6 @@ dependencies:
   auto_size_text: ^2.1.0
   page_transition: ^2.0.1-nullsafety.0
   http: ^0.13.1
-  firebase_messaging: ^9.1.2
   
 
 dev_dependencies:

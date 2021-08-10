@@ -50,6 +50,7 @@ class DatabaseService {
 
   Stream<List<Mosque>> get mosques {
     return mosqueCollection
+        .where('valid', isEqualTo: true)
         .orderBy('name')
         .snapshots()
         .map(_mosqueListFromSnapShot);
